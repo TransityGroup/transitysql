@@ -6,7 +6,7 @@ FROM ubuntu:18.04
 RUN \
   apt update && \
   apt install -y unzip openjdk-8-jre-headless git wget && \
-  apt install -y python3 python3-pip python3-dev && \
+  apt install -y python3.7 python3-pip python3-dev && \
   rm -rf /var/lib/apt/lists/*
 
 ENV VERSION stanford-corenlp-full-2016-10-31
@@ -24,7 +24,7 @@ RUN \
 RUN \
   cd /opt && \
   echo v2 && \
-  git clone https://github.com/paulfitz/sqlova/ -b prediction_api
+  git clone https://github.com/TransityGroup/sqlova -b prediction_api
 
 WORKDIR /opt/sqlova
 
