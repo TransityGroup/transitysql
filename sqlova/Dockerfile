@@ -20,7 +20,7 @@ RUN \
  rm -r corenlp.zip && \
  rm -rf /var/lib/apt/lists/*
 
-ADD http://www.convert-unix-time.com/api?timestamp=now /tmp/bustcache
+ADD http://worldtimeapi.org/api/timezone/Europe/London.txt /tmp/bustcache
 RUN \
   cd /opt && \
   echo v2 && \
