@@ -3,6 +3,7 @@
 FROM ubuntu:18.04
 
 # Install Java
+RUN DEBIAN_FRONTEND="noninteractive" apt-get -y install tzdata
 RUN \
   apt update && \
   apt install -y unzip openjdk-8-jre-headless git postgresql python-psycopg2 libpq-dev wget jq && \
