@@ -20,7 +20,6 @@ RUN \
  rm -r corenlp.zip && \
  rm -rf /var/lib/apt/lists/*
 
-ADD http://worldtimeapi.org/api/timezone/Europe/London.txt /tmp/bustcache
 RUN \
   cd /opt && \
   echo v2 && \
@@ -35,6 +34,12 @@ add run_services.sh run_services.sh
 
 RUN \
   pip3 install -r requirements.txt
+
+ADD http://worldtimeapi.org/api/timezone/Europe/London.txt /tmp/bustcache
+RUN \
+  cd /opt && \
+  echo v2 && \
+  git clone https://github.com/TransityGroup/sqlova -b prediction_api
 
 CMD ["./run_services.sh"]
 
