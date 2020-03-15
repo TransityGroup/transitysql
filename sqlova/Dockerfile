@@ -5,7 +5,7 @@ FROM ubuntu:18.04
 # Install Java
 RUN \
   apt update && \
-  apt install -y unzip openjdk-8-jre-headless git wget && \
+  apt install -y unzip openjdk-8-jre-headless git wget jq && \
   apt install -y python3.7 python3-pip python3-dev && \
   rm -rf /var/lib/apt/lists/*
 
@@ -20,7 +20,7 @@ RUN \
  rm -r corenlp.zip && \
  rm -rf /var/lib/apt/lists/*
 
-ARG CACHEBUST=1
+ADD http://www.convert-unix-time.com/api?timestamp=now /tmp/bustcache
 RUN \
   cd /opt && \
   echo v2 && \

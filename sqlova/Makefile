@@ -1,5 +1,5 @@
 start:
-	docker run --name sqlova -d -p "5050:5050" honda-sql
+	docker run --name sqlova -m 6GB -d -p "5050:5050" honda-sql
 
 build:
 	./fetch_models.sh
