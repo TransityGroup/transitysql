@@ -38,8 +38,7 @@ RUN \
 ADD http://worldtimeapi.org/api/timezone/Europe/London.txt /tmp/bustcache
 RUN \
   cd /opt && \
-  echo v2 && \
-  git clone https://github.com/TransityGroup/sqlova -b prediction_api
+  git pull
 
 CMD ["./run_services.sh"]
 
