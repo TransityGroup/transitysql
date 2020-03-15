@@ -37,7 +37,7 @@ RUN \
 
 ADD http://worldtimeapi.org/api/timezone/Europe/London.txt /tmp/bustcache
 RUN \
-  cd /opt && \
+  cd /opt/sqlova && \
   git pull
 
 CMD ["./run_services.sh"]
