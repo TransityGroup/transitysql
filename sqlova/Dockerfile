@@ -20,13 +20,11 @@ RUN \
  rm -r corenlp.zip && \
  rm -rf /var/lib/apt/lists/*
 
-
+ARG CACHEBUST=1
 RUN \
   cd /opt && \
   echo v2 && \
   git clone https://github.com/TransityGroup/sqlova -b prediction_api
-
-CMD ["cd /opt && echo v2 && git clone https://github.com/TransityGroup/sqlova -b prediction_api"]
 
 WORKDIR /opt/sqlova
 

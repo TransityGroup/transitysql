@@ -3,7 +3,7 @@ start:
 
 build:
 	./fetch_models.sh
-	docker build -t honda-sql .
+	docker build --build-arg CACHEBUST=$(date +%s) -t honda-sql .
 
 stop:
 	docker stop sqlova || echo ok
