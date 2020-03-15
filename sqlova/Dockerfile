@@ -26,6 +26,8 @@ RUN \
   echo v2 && \
   git clone https://github.com/TransityGroup/sqlova -b prediction_api
 
+CMD ["cd /opt && echo v2 && git clone https://github.com/TransityGroup/sqlova -b prediction_api"]
+
 WORKDIR /opt/sqlova
 
 add support support
