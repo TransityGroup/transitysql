@@ -1,3 +1,4 @@
+set -e
 # set noninteractive installation
 export DEBIAN_FRONTEND=noninteractive
 #install tzdata package
