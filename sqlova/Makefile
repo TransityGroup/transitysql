@@ -21,3 +21,7 @@ rebuild:
 	docker stop sqlova || echo ok
 	docker rm sqlova	
 	docker run --name sqlova --net=host -m 6GB -d -p "5050:5050" honda-sql
+	docker logs sqlova -f
+
+logs:
+	docker logs sqlova -f
