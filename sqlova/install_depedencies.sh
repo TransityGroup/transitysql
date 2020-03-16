@@ -1,6 +1,7 @@
 set -e
 # set noninteractive installation
 export DEBIAN_FRONTEND=noninteractive
+apt-get update
 #install tzdata package
 apt install -y postgresql python-psycopg2 libpq-dev
 # set your timezone
