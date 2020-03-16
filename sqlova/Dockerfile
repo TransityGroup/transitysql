@@ -3,14 +3,16 @@
 FROM ubuntu:18.04
 
 # Install Java
-RUN DEBIAN_FRONTEND="noninteractive" apt install -y tzdata
 RUN \
   apt update && \
-  apt install -y unzip openjdk-8-jre-headless git postgresql python-psycopg2 libpq-dev wget jq && \
+  apt install -y unzip openjdk-8-jre-headless git wget jq && \
   apt install -y python3.7 python3-pip python3-dev && \
   rm -rf /var/lib/apt/lists/*
 
 ENV VERSION stanford-corenlp-full-2016-10-31
+
+ADD install_depedencies.sh /install_depedencies.sh
+RUN /install_depedencies.sh
 
 RUN \
  mkdir -p /opt/corenlp && \
