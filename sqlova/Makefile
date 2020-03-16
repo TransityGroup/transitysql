@@ -3,7 +3,7 @@ start:
 
 build:
 	./fetch_models.sh
-	docker build --build-arg -t honda-sql .
+	docker build -t honda-sql .
 shell:
 	docker exec -it sqlova bash
 stop:
