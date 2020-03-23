@@ -10,8 +10,6 @@ RUN \
   rm -rf /var/lib/apt/lists/*
 
 ENV VERSION stanford-corenlp-full-2016-10-31
-ENV LC_ALL=C.UTF-8
-ENV LANG=C.UTF-8
 
 ADD install_depedencies.sh /install_depedencies.sh
 RUN /install_depedencies.sh
@@ -27,10 +25,10 @@ RUN \
 
 RUN \
   cd /opt && \
-  echo v2 && \
-  git clone https://github.com/TransityGroup/sqlova -b prediction_api
+  echo v2
+  # git clone https://github.com/TransityGroup/sqlova -b prediction_api
 
-#ADD ./src /opt/sqlova
+ADD ./src /opt/sqlova
 
 WORKDIR /opt/sqlova
 
@@ -41,11 +39,11 @@ ADD run_services.sh run_services.sh
 
 RUN pip3 install -r requirements.txt
 RUN pip3 install uvicorn
+RUN which uvicorn
 
 ADD http://worldtimeapi.org/api/timezone/Europe/London.txt /tmp/bustcache
-
-RUN cd /opt/sqlova && git pull
+RUN \
+  cd /opt/sqlova && \
+  git pull
 
 CMD ["./run_services.sh"]
-
-EXPOSE 8000
