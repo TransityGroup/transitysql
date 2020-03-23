@@ -4,8 +4,10 @@ start:
 build:
 	sudo ./fetch_models.sh
 	sudo docker build -t honda-sql .
+
 shell:
 	sudo docker exec -it sqlova bash
+
 stop:
 	sudo docker stop sqlova || echo ok
 	sudo docker rm sqlova
