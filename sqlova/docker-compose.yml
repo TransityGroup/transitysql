@@ -29,6 +29,7 @@ services:
       - HIDDEN_VECTOR_DIMENSION=100
       - EXECUTION_GUIDED_DECODING=False
       - BEAM_SIZE=4
+      - WEB_CONCURRENCY=4
     network_mode: host
     ports:
     - 8000:8000
