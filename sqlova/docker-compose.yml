@@ -1,0 +1,34 @@
+version: '3.7'
+
+services:
+  sqlova:
+    container_name: transitysql
+    build: .
+    environment:
+      - DB_URL=postgres://postgres:postgres@localhost:5432/honda_dev
+      - BERT_TYPE_ABB=uL
+      - MODEL_FILE=pretrained/model_best.pt
+      - BERT_MODEL_FILE=pretrained/model_bert_best.pt
+      - BERT_PATH=support
+      - DATA_PATH=/opt/sqlova
+      - RESULT_PATH=/opt/sqlova
+      - TEPOCH=200
+      - BATCH_SIZE=32
+      - ACCUMULATE_GRADIENTS=1
+      - FINE_TUNE=False
+      - MODEL_TYPE=Seq2SQL_v1
+      - VOCAB_FILE=vocab.txt
+      - MAX_SEQ_LENGTH=222
+      - NUM_TARGET_LAYERS=2
+      - LR_BERT=0.00001
+      - SEED=42
+      - NO_PRETRAINING=False
+      - NUM_LSTM_LAYERS=2
+      - DROPOUT_RATE=0.3
+      - LEARNING_RATE=0.001
+      - HIDDEN_VECTOR_DIMENSION=100
+      - EXECUTION_GUIDED_DECODING=False
+      - BEAM_SIZE=4
+    network_mode: host
+    ports:
+    - 8000:8000

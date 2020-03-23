@@ -29,13 +29,7 @@ while ! wget http://localhost:9000 < /dev/null > /dev/null 2>&1; do
 done
 
 cd /opt/sqlova
-python3 ./predict.py \
-              --bert_type_abb uL \
-              --model_file pretrained/model_best.pt \
-              --bert_model_file pretrained/model_bert_best.pt \
-              --bert_path support \
-              --data_path /opt/sqlova \
-              --result_path /opt/sqlova &
+uvicorn predict:app
 PIDS+=($!)
 
 wait "${PIDS[@]}"

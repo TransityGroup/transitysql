@@ -1,27 +1,27 @@
 start:
-	docker run --name sqlova --net=host -m 6GB -d -p "5050:5050" honda-sql
+	sudo docker run --name sqlova --net=host -m 6GB -d -p "5050:5050" honda-sql
 
 build:
-	./fetch_models.sh
-	docker build -t honda-sql .
+	sudo ./fetch_models.sh
+	sudo docker build -t honda-sql .
 shell:
-	docker exec -it sqlova bash
+	sudo docker exec -it sqlova bash
 stop:
-	docker stop sqlova || echo ok
-	docker rm sqlova
+	sudo docker stop sqlova || echo ok
+	sudo docker rm sqlova
 
 restart:
-	docker stop sqlova || echo ok
-	docker rm sqlova	
-	docker run --name sqlova --net=host -m 6GB -d -p "5050:5050" honda-sql
+	sudo docker stop sqlova || echo ok
+	sudo docker rm sqlova	
+	sudo docker run --name sqlova --net=host -m 6GB -d -p "5050:5050" honda-sql
 
 rebuild:
-	./fetch_models.sh
-	docker build -t honda-sql .
-	docker stop sqlova || echo ok
-	docker rm sqlova	
-	docker run --name sqlova --net=host -m 6GB -d -p "5050:5050" honda-sql
-	docker logs sqlova -f
+	sudo ./fetch_models.sh
+	sudo docker build -t honda-sql .
+	sudo docker stop sqlova || echo ok
+	sudo docker rm sqlova	
+	sudo docker run --name sqlova --net=host -m 6GB -d -p "5050:5050" honda-sql
+	sudo docker logs sqlova -f
 
 logs:
-	docker logs sqlova -f
+	sudo docker logs sqlova -f
