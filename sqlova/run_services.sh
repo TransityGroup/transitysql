@@ -29,7 +29,7 @@ while ! wget http://localhost:9000 < /dev/null > /dev/null 2>&1; do
 done
 
 cd /opt/sqlova
-uvicorn --workers 4 predict:app
+uvicorn --workers 2 predict:app
 PIDS+=($!)
 
 wait "${PIDS[@]}"
